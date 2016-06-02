@@ -18,5 +18,4 @@ Input:
 - vol: Volatility per year
 
 Example: 
-- Example: User inputs the SFE3maxprocess parameters [Stocks Initial Price, Interest Rate, Volatility] 
-  like [100,0.05,0.03].
+- Example: User inputs the SFE3maxprocess parameters [Stocks Initial Price, Interest Rate, Volatility] like [100,0.05,0.03].
