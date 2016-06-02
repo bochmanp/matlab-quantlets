@@ -1,44 +1,42 @@
 
-[<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/banner.png" alt="Visit QuantNet">](http://quantlet.de/index.php?p=info)
+[<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/banner.png" width="880" alt="Visit QuantNet">](http://quantlet.de/index.php?p=info)
 
-## [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFEevt2** [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/d3/ia)
+## [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFEevt2**[<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/d3/ia)
 
 ```yaml
+Name of QuantLet : SFEevt2 
 
-Name of QuantLet : SFEevt2
+Published in: Statistics of Financial Markets
 
-Published in : Statistics of Financial Markets
+Description: 'Shows the normal probability plot (PP Plot) of the pseudo random variables with extreme value distributions: Weibull, Frechet and Gumbel.'
 
-Description : 'Shows the normal probability plot (PP Plot) of the pseudo random variables with
-extreme value distributions: Weibull, Frechet and Gumbel.'
+Keywords: Frechet, GEV, Weibull, distribution, edf, extreme-value, gumbel, normal, normal-distribution, plot, pp-plot, random, random-number-generation
 
-Keywords : 'Frechet, GEV, Weibull, distribution, edf, extreme-value, gumbel, normal,
-normal-distribution, plot, pp-plot, random, random-number-generation'
+See also: SFEevt1, SFEevt3
 
-See also : SFEevt1, SFEevt3
+Author: Wolfgang K. Haerdle
 
-Author : Wolfgang K. Haerdle
+Author [Matlab]: Juergen Franke
 
-Submitted : Fri, June 05 2015 by Lukas Borke
+Submitted: Fri, June 05 2015 by Lukas Borke
 
 Input: 
-- FALSE: number of observations
+- n : number of observations
 
-Output : Normal plot of the pseudo random variables with Weibull, Frechet and Gumbel distributions.
+Output: 'Normal plot of the pseudo random variables with Weibull, Frechet and Gumbel distributions.'
 
-Example : 'User inputs the number of observations like 100, then 3 PP Plots of the random
-distributions are given via the interactive selection menu. The PP line shows the difference of the
-distributions.'
+Example: 'User inputs the number of observations like 100, then 3 PP Plots of the random distributions are given via the interactive selection menu. The PP line shows the difference of the distributions.'
 
 ```
 
-![Picture1](SFEevt2_1-1.png)
+![Picture1](SFEevt2_01Matlab.png)
+![Picture2](SFEevt2_02Matlab.png)
+![Picture3](SFEevt2_03Matlab.png)
+![Picture4](SFEevt2_1-1.png)
+![Picture5](SFEevt2_2-1.png)
+![Picture6](SFEevt2_3-1.png)
 
-![Picture2](SFEevt2_2-1.png)
-
-![Picture3](SFEevt2_3-1.png)
-
-
+### R Code:
 ```r
 
 # clear variables and close windows
@@ -102,5 +100,80 @@ if (sel == "Gumbel") {
     axis(2, at = seq(0, 1, 0.2))
     points(quantile, y, col = "blue", pch = 19, cex = 0.8)
 } 
+```
+### Matlab Code
+```matlab
+clear all
+close all
+clc
 
+n = 100;
+
+% Gumbel
+gumb1 = gevrnd(0, 1, 0, 100, 1);
+gumb2 = sort(gumb1);
+gumb  = normcdf(gumb2, 0, 1);
+t     = (1:n)/(n+1);
+
+hold on
+figure(1)
+plot(t, t, 'r', 'LineWidth', 2)
+scatter(gumb, t, '.', 'b')
+t  = 0:0.2:1;
+t1 = 0:0.2:1;
+set(gca, 'YTick', t)
+set(gca, 'YTickLabel', t1)
+title('PP Plot of Extreme Value - Gumbel','FontSize', 16, 'FontWeight', 'Bold')
+box on
+set(gca, 'FontSize', 16, 'LineWidth', 2, 'FontWeight', 'bold');
+hold off
+% print -painters -dpdf -r600 SFEevt2_01.pdf
+% print -painters -dpng -r600 SFEevt2_01.png
+
+% Frechet
+frec1 = gevrnd(0.5, 0.5, 1, 100, 1);
+frec2 = sort(frec1);
+frec  = normcdf(frec2, 0, 1);
+t     = (1:n)/(n+1);
+
+figure(2)
+hold on
+plot(t, t, 'r', 'LineWidth', 2)
+scatter(frec, t, '.', 'b')
+xlim([0 1])
+ylim([0 1])
+t  = 0:0.2:1;
+t1 = 0:0.2:1;
+set(gca, 'YTick', t)
+set(gca, 'YTickLabel', t1)
+title('PP Plot of Extreme Value - Frechet', 'FontSize', 16, 'FontWeight', 'Bold')
+box on
+set(gca, 'FontSize', 16, 'LineWidth', 2, 'FontWeight', 'bold');
+hold off
+% print -painters -dpdf -r600 SFEevt2_02.pdf
+% print -painters -dpng -r600 SFEevt2_02.png
+
+% Weibull
+weib1 = gevrnd(-0.5, 0.5, -1, 100, 1);
+weib2 = sort(weib1);
+weib  = normcdf(weib2, 0, 1);
+t     = (1:n)/(n+1);
+
+figure(3)
+hold on
+plot(t, t, 'r', 'LineWidth', 2)
+scatter(weib, t, '.', 'b')
+xlim([0 1])
+ylim([0 1])
+title('PP Plot of Extreme Value - Weibull', 'FontSize', 16, 'FontWeight', 'Bold')
+t  = 0:0.2:1;
+t1 = 0:0.2:1;
+set(gca, 'YTick', t)
+set(gca, 'YTickLabel', t1)
+box on
+set(gca, 'FontSize', 16, 'LineWidth', 2, 'FontWeight', 'bold');
+hold off
+
+% print -painters -dpdf -r600 SFEevt2_03.pdf
+% print -painters -dpng -r600 SFEevt2_03.png
 ```

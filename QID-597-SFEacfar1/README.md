@@ -1,28 +1,28 @@
 
-[<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/banner.png" alt="Visit QuantNet">](http://quantlet.de/index.php?p=info)
+[<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/banner.png" width="880" alt="Visit QuantNet">](http://quantlet.de/index.php?p=info)
 
-## [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFEacfar1** [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/d3/ia)
+## [<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFEacfar1**[<img src="https://github.com/QuantLet/Styleguide-and-Validation-procedure/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/d3/ia)
 
 ```yaml
+Name of QuantLet: SFEacfar1
 
-Name of QuantLet : SFEacfar1
+Published in: Statistics of Financial Markets
 
-Published in : Statistics of Financial Markets
+Description: 'Plots the autocorrelation function of an AR(1) (autoregressive) process.'
 
-Description : Plots the autocorrelation function of an AR(1) (autoregressive) process.
+Keywords: acf, autocorrelation, autoregressive, discrete, graphical representation, linear, plot, process, simulation, stationary, stochastic, stochastic-process, time-series
 
-Keywords : 'acf, autocorrelation, autoregressive, discrete, graphical representation, linear, plot,
-process, simulation, stationary, stochastic, stochastic-process, time-series'
+See also: SFEacfar2, SFEacfma1, SFEacfma2, SFEpacfar2, SFEpacfma2, SFEfgnacf
 
-See also : SFEacfar2, SFEacfma1, SFEacfma2, SFEpacfar2, SFEpacfma2, SFEfgnacf
+Author: Joanna Tomanek
 
-Author : Joanna Tomanek
+Author[Matlab]: Christian M. Hafner 
 
-Submitted : Fri, June 13 2014 by Felix Jung
+Submitted: Fri, June 13 2014 by Felix Jung
 
 Input: 
-- a: alpha value
-- lag: lag value
+- a : alpha value
+- lag : lag value
 
 Example: 
 - 1: a=0.9, lag=30
@@ -31,10 +31,11 @@ Example:
 ```
 
 ![Picture1](SFEacfar1_1-1.png)
-
 ![Picture2](SFEacfar1_2-1.png)
+![Picture3](SFEacfar1Matlab.png)
+![Picture4](SFEacfar1Matlab2.png)
 
-
+### R Code:
 ```r
 
 # clear variables and close windows
@@ -61,4 +62,27 @@ lag = type.convert(lag, na.strings = "NA", as.is = FALSE, dec = ".")
 plot(ARMAacf(ar = a, ma = numeric(0), lag.max = lag, pacf = FALSE), type = "h", 
     xlab = "lag", ylab = "acf")
 title("Sample autocorrelation function (acf)")
+```
+### Matlab Code
+```matlab
+clear
+clc
+close all
+
+% user inputs parameters
+disp('Please input lag value lag, value of alpha1 a as: [30, 0.9]') ;
+disp(' ') ;
+para = input('[lag, a] = ');
+while length(para) < 2
+    disp('Not enough input arguments. Please input in 1*2 vector form like [30, 0.9] or [30 0.9]');
+    para = input('[lag, a] = ');
+end
+lag = para(1);
+a   = para(2);
+
+% main computation
+randn('state', 0)              % Start from a known state.
+x = randn(10000, 1);           % 10000 Gaussian deviates ~ N(0, 1).
+y = filter(1, [1 -a], x);      % Create an AR(1) process.
+autocorr(y, lag, [], 2);       % Plot
 ```
