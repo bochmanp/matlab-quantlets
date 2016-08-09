@@ -29,12 +29,12 @@ Example: 'User inputs the number of observations like 100, then 3 PP Plots of th
 
 ```
 
-![Picture1](SFEevt2_01Matlab.png)
-![Picture2](SFEevt2_02Matlab.png)
-![Picture3](SFEevt2_03Matlab.png)
-![Picture4](SFEevt2_1-1.png)
-![Picture5](SFEevt2_2-1.png)
-![Picture6](SFEevt2_3-1.png)
+![Picture1](SFEevt2-1_m.png)
+![Picture2](SFEevt2-2_m.png)
+![Picture3](SFEevt2-3_m.png)
+![Picture4](SFEevt21.png)
+![Picture5](SFEevt22.png)
+![Picture6](SFEevt23.png)
 
 ### R Code:
 ```r
@@ -113,14 +113,14 @@ n = 100;
 gumb1 = gevrnd(0, 1, 0, 100, 1);
 gumb2 = sort(gumb1);
 gumb  = normcdf(gumb2, 0, 1);
-t     = (1:n)/(n+1);
+t     = (1 : n) / (n + 1);
 
 hold on
 figure(1)
 plot(t, t, 'r', 'LineWidth', 2)
 scatter(gumb, t, '.', 'b')
-t  = 0:0.2:1;
-t1 = 0:0.2:1;
+t  = 0 : 0.2 : 1;
+t1 = 0 : 0.2 : 1;
 set(gca, 'YTick', t)
 set(gca, 'YTickLabel', t1)
 title('PP Plot of Extreme Value - Gumbel','FontSize', 16, 'FontWeight', 'Bold')
@@ -134,7 +134,7 @@ hold off
 frec1 = gevrnd(0.5, 0.5, 1, 100, 1);
 frec2 = sort(frec1);
 frec  = normcdf(frec2, 0, 1);
-t     = (1:n)/(n+1);
+t     = (1 : n) / (n + 1);
 
 figure(2)
 hold on
@@ -142,8 +142,8 @@ plot(t, t, 'r', 'LineWidth', 2)
 scatter(frec, t, '.', 'b')
 xlim([0 1])
 ylim([0 1])
-t  = 0:0.2:1;
-t1 = 0:0.2:1;
+t  = 0 : 0.2 : 1;
+t1 = 0 : 0.2 : 1;
 set(gca, 'YTick', t)
 set(gca, 'YTickLabel', t1)
 title('PP Plot of Extreme Value - Frechet', 'FontSize', 16, 'FontWeight', 'Bold')
@@ -157,7 +157,7 @@ hold off
 weib1 = gevrnd(-0.5, 0.5, -1, 100, 1);
 weib2 = sort(weib1);
 weib  = normcdf(weib2, 0, 1);
-t     = (1:n)/(n+1);
+t     = (1 : n) / (n + 1);
 
 figure(3)
 hold on
@@ -166,8 +166,8 @@ scatter(weib, t, '.', 'b')
 xlim([0 1])
 ylim([0 1])
 title('PP Plot of Extreme Value - Weibull', 'FontSize', 16, 'FontWeight', 'Bold')
-t  = 0:0.2:1;
-t1 = 0:0.2:1;
+t  = 0 : 0.2 : 1;
+t1 = 0 : 0.2 : 1;
 set(gca, 'YTick', t)
 set(gca, 'YTickLabel', t1)
 box on

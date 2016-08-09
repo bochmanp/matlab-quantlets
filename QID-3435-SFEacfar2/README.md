@@ -33,14 +33,14 @@ Example:
 
 ```
 
-![Picture1](SFEacfar2_01Matlab.png)
-![Picture2](SFEacfar2_02Matlab.png)
-![Picture3](SFEacfar2_03Matlab.png)
-![Picture4](SFEacfar2_04Matlab.png)
-![Picture5](SFEacfar2_1-1.png)
-![Picture6](SFEacfar2_2-1.png)
-![Picture7](SFEacfar2_3-1.png)
-![Picture8](SFEacfar2_4-1.png)
+![Picture1](SFEacfar2-1_m.png)
+![Picture2](SFEacfar2-2_m.png)
+![Picture3](SFEacfar2-3_m.png)
+![Picture4](SFEacfar2-4_m.png)
+![Picture5](SFEacfar21.png)
+![Picture6](SFEacfar22.png)
+![Picture7](SFEacfar23.png)
+![Picture8](SFEacfar24.png)
 
 ### R Code:
 ```r

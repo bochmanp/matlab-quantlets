@@ -24,8 +24,8 @@ Example: 'Gumbel distribution (solid line), Frechet distribution with parameter 
 
 ```
 
-![Picture1](SFEevt1-1.png)
-![Picture2](SFEevt1-1Matlab.png)
+![Picture1](SFEevt-1_m.png)
+![Picture2](SFEevt1.png)
 
 ### R Code:
 ```r
@@ -63,10 +63,10 @@ clc
 
 n     = 100;
 sp    = 5;
-xpos  = sp*(1:n)/n;
-xneg  = -sp + xpos;
+xpos  = sp * (1:n)/n;
+xneg  = - sp + xpos;
 x     = [xneg,xpos]';
-alpha = 1/2;
+alpha = 1 / 2;
 gumb  = [x gevpdf(x)];
 frec  = [x gevpdf(x,alpha,0.5,1)];
 weib  = [x gevpdf(x,-alpha,0.5,-1)];
@@ -78,8 +78,8 @@ plot(weib(:,1), weib(:,2), 'b', 'Linewidth', 2, 'LineStyle','-.')
 title('Extreme Value Densities', 'FontSize', 16, 'FontWeight', 'Bold')
 xlabel('X', 'FontSize', 16, 'FontWeight', 'Bold')
 ylabel('Y', 'FontSize', 16, 'FontWeight', 'Bold')
-t  = 0:0.2:1;
-t1 = 0:0.2:1;
+t  = 0: 0.2: 1;
+t1 = 0: 0.2: 1;
 set(gca, 'YTick', t)
 set(gca, 'YTickLabel', t1)
 box on

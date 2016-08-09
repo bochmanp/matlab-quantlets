@@ -30,10 +30,10 @@ Example:
 
 ```
 
-![Picture1](SFEacfar1_1-1.png)
-![Picture2](SFEacfar1_2-1.png)
-![Picture3](SFEacfar1Matlab.png)
-![Picture4](SFEacfar1Matlab2.png)
+![Picture1](SFEacfar1-1_m.png)
+![Picture2](SFEacfar1-2_m.png)
+![Picture3](SFEacfar11.png)
+![Picture4](SFEacfar12.png)
 
 ### R Code:
 ```r

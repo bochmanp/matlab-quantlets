@@ -43,8 +43,8 @@ Example: 'Plots the ACF of a MA(2) process with beta1=0.5, beta2=0.4 (top left),
 
 ```
 
-![Picture1](SFEacfma2-1.png)
-![Picture2](SFEacfma2_01Matlab.png)
+![Picture1](SFEacfma2.png)
+![Picture2](SFEacfma2_m.png)
 
 ### R Code:
 ```r
