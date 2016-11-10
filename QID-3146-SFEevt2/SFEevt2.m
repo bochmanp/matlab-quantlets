@@ -18,7 +18,7 @@ t  = 0 : 0.2 : 1;
 t1 = 0 : 0.2 : 1;
 set(gca, 'YTick', t)
 set(gca, 'YTickLabel', t1)
-title('PP Plot of Extreme Value - Gumbel','FontSize', 16, 'FontWeight', 'Bold')
+title('PP Plot of Extreme Value - Gumbel', 'FontSize', 16, 'FontWeight', 'Bold')
 box on
 set(gca, 'FontSize', 16, 'LineWidth', 2, 'FontWeight', 'bold');
 hold off
